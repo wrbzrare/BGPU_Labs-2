@@ -1,0 +1,42 @@
+// Родительский класс
+public class Car {
+    private String model;
+    private int year;
+
+    public Car(String model, int year) {
+        this.model = model;
+        this.year = year;
+		
+    }
+
+    public void drive() {
+        System.out.println(model + " is driving.");
+    }
+}
+
+// Класс-наследник для электромобиля
+public class ElectricCar extends Car {
+    private double batteryLevel;
+
+    public ElectricCar(String model, int year, double batteryLevel) {
+        super(model, year);
+        this.batteryLevel = batteryLevel;
+    }
+
+    public void chargeBattery(double amount) {
+        batteryLevel += amount;
+        if (batteryLevel > 100) batteryLevel = 100;
+        System.out.println("Battery charged to " + batteryLevel + "%");
+    }
+
+    @Override
+    public void drive() {
+        if (batteryLevel > 0) {
+            batteryLevel -= 10;
+            System.out.println(model + " is driving. Battery at " + batteryLevel + "%");
+        } else {
+            System.out.println(model + " cannot drive, battery empty.");
+        }
+    }
+}
+
