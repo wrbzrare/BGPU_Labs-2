@@ -1,0 +1,19 @@
+public class Car {
+
+	public string model;
+	private int year;
+    private double price;
+	
+	public int Year{
+		get { return year; }
+		set { year = value; }
+	};
+	
+    public void Increase_price_percent(double percent) {
+        price += price*(percent/100);
+    }
+
+    public double GetPrice() {
+        return price;
+    }
+}
