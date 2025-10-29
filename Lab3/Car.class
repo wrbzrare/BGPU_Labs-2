@@ -1,0 +1,33 @@
+// Базовый класс
+public class Car {
+    public void drive() {
+        System.out.println("Машина едет");
+    }
+}
+
+// Наследник 1
+public class SportsCar extends Car {
+    @Override
+    public void drive() {
+        System.out.println("Спортивная машина мчится быстро");
+    }
+}
+
+// Наследник 2
+public class Truck extends Car {
+    @Override
+    public void drive() {
+        System.out.println("Грузовик едет медленно, но уверенно");
+    }
+}
+
+// Демонстрация полиморфизма
+public class Main {
+    public static void main(String[] args) {
+        Car[] cars = { new Car(), new SportsCar(), new Truck() };
+
+        for (Car car : cars) {
+            car.drive();  // Один и тот же вызов метода - разное поведение
+        }
+    }
+}
